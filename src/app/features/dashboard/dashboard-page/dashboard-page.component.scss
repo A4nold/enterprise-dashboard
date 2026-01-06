@@ -1,0 +1,55 @@
+.page { display: grid; gap: 16px; }
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.muted { color: #6b7280; }
+
+.error {
+  border: 1px solid #ef4444;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.card-label { color: #6b7280; font-size: 12px; }
+.card-value { font-size: 24px; font-weight: 600; }
+
+.panel {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.list { list-style: none; padding: 0; margin: 0; }
+.list-item { padding: 10px 0; border-top: 1px solid #f3f4f6; }
+.list-item:first-child { border-top: none; }
+
+.msg { font-weight: 500; }
+.ts { color: #6b7280; font-size: 12px; }

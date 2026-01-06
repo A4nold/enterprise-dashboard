@@ -1,2 +1,42 @@
-<h1>Dashboard</h1>
-<p>Day 1: App shell + routing is live.</p>
+<section class="page">
+  <div class="page-header">
+    <h1>Dashboard</h1>
+    <button class="btn" (click)="load()">Refresh</button>
+  </div>
+
+  @if (isLoading()) {
+    <p class="muted">Loading dashboard…</p>
+  } @else if (errorMessage()) {
+    <div class="error">
+      <div><strong>Error:</strong> {{ errorMessage() }}</div>
+      <button class="btn" (click)="load()">Retry</button>
+    </div>
+  } @else if (vm()) {
+    <section class="kpis">
+      @for (kpi of vm()!.kpis; track kpi.label) {
+        <div class="card">
+          <div class="card-label">{{ kpi.label }}</div>
+          <div class="card-value">{{ kpi.value }}</div>
+        </div>
+      }
+    </section>
+
+    <section class="panel">
+      <h2>Recent Activity</h2>
+
+      @if (vm()!.activity.length === 0) {
+        <p class="muted">No recent activity.</p>
+      } @else {
+        <ul class="list">
+          @for (item of vm()!.activity; track item.id) {
+            <li class="list-item">
+              <div class="msg">{{ item.message }}</div>
+              <div class="ts">{{ item.createdAt | date:'medium' }}</div>
+            </li>
+          }
+        </ul>
+      }
+    </section>
+  }
+</section>
+
